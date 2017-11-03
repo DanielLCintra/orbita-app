@@ -3,16 +3,12 @@
 	import { map } from 'lodash'
 
 	export default{
-		components: {
-			CcForm,
-			CcList
-		},
-		mounted(){
-			
-		},	
 		methods:{
 			logout(){
 				this.$auth.signOut()
+			},
+			navigate(destiny){
+				this.$router.push(`${destiny}`)
 			}
 		}
 
@@ -23,18 +19,19 @@
 	<q-layout>
 		
 		<q-drawer ref="drawer">
-			<button class="primary" style="width: 100%" @click="logout">Despesas</button>
+			<button class="primary" style="width: 100%" @click="navigate('despesas')">Despesas</button>
+			<button class="primary" style="width: 100%" @click="navigate('mapa')">Mapa</button>
 			<button class="primary" style="width: 100%" @click="logout">Logout</button>
 		</q-drawer>
 
 		<div slot="header" class="toolbar">
 
 			<button class="hide-on-drawer-visible" @click="$refs.drawer.open()">
-				<i>menu</i>
+				<i>menu</i>	
 			</button>
 
 			<q-toolbar-title :padding="0">
-				Despesas em dinheiro vivo
+				Orbita
 			</q-toolbar-title>
 		</div>
 		<router-view></router-view>

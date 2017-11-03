@@ -21,11 +21,12 @@ export default new VueRouter({
    */
 
   routes: [
-    { path: '/', component: load('Index') , 
-    children[{
-      { path: '/despesas', component: load('Despesas')
-    }]}, // Default
-    { path: '/auth', component: load('auth/main') } // Default
-    // { path: '*', component: load('Error404') } // Not found
+    { path: '/', component: load('Index'), 
+    children: [
+      { path: '/despesas', component: load('expenses/main')},
+      { path: '/mapa', component: load('mapa/main')}
+    ]}, 
+    { path: '/auth', component: load('auth/main') },
+    { path: '*', component: load('Error404') }
   ]
 })
