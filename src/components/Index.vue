@@ -1,7 +1,5 @@
 <script>
 
-	import CcForm from './expenses/form.vue'
-	import CcList from './expenses/list.vue'
 	import { map } from 'lodash'
 
 	export default{
@@ -10,25 +8,8 @@
 			CcList
 		},
 		mounted(){
-			this.$db.ref('expenses').on('value', data => {
-
-				const obj = data.val()
-
-				this.list = map(obj, (expense, index) => {
-
-					expense.id = index
-
-					return expense
-
-				})
-				
-			})
+			
 		},	
-		data(){
-			return {
-				list: []
-			}
-		},
 		methods:{
 			logout(){
 				this.$auth.signOut()
@@ -42,6 +23,7 @@
 	<q-layout>
 		
 		<q-drawer ref="drawer">
+			<button class="primary" style="width: 100%" @click="logout">Despesas</button>
 			<button class="primary" style="width: 100%" @click="logout">Logout</button>
 		</q-drawer>
 
@@ -55,12 +37,7 @@
 				Despesas em dinheiro vivo
 			</q-toolbar-title>
 		</div>
-		<div class="container">
-			<cc-form></cc-form>
-
-			<hr v-show="list.length > 0">
-			<cc-list :list="list"></cc-list>
-		</div>
+		<router-view></router-view>
 	</q-layout>
 </template>
 

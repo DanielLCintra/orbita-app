@@ -4,6 +4,26 @@
 
 	export default{
 		props:['list'],
+		data(){
+			return {
+				list: []
+			}
+		},
+		mounted(){
+			this.$db.ref('expenses').on('value', data => {
+
+				const obj = data.val()
+
+				this.list = map(obj, (expense, index) => {
+
+					expense.id = index
+
+					return expense
+
+				})
+				
+			})
+		},
 		methods:{
 			askRemove(expense){
 
