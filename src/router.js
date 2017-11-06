@@ -24,7 +24,8 @@ export default new VueRouter({
     { path: '/', component: load('Index'), 
     children: [
       { path: '/despesas', component: load('expenses/main')},
-      { path: '/mapa', component: load('mapa/main')}
+      { path: '/mapa', component: load('mapa/main')},
+      { path: '/select-type', component: load('select-type/main')}
     ]}, 
     { path: '/auth', component: load('auth/main') },
     { path: '*', component: load('Error404') }

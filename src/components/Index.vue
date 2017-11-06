@@ -21,7 +21,9 @@
 		<q-drawer ref="drawer">
 			<button class="primary" style="width: 100%" @click="navigate('despesas')">Despesas</button>
 			<button class="primary" style="width: 100%" @click="navigate('mapa')">Mapa</button>
+			<button class="primary" style="width: 100%" @click="navigate('select-type')">Select Type</button>
 			<button class="primary" style="width: 100%" @click="logout">Logout</button>
+
 		</q-drawer>
 
 		<div slot="header" class="toolbar">
